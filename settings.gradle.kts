@@ -28,4 +28,13 @@ dependencyResolutionManagement {
     }
 }
 
+include(":androidApp")
+include(":iosApp")
 include(":composeApp")
+
+include(":features:greeting")
+
+include(":shared:core")
+include(":shared:data")
+include(":shared:domain")
+include(":shared:ui")

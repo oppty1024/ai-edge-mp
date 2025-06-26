@@ -22,17 +22,14 @@ kotlin {
         iosSimulatorArm64()
     ).forEach { iosTarget ->
         iosTarget.binaries.framework {
-            baseName = "ComposeApp"
+            baseName = "SharedUI"
             isStatic = true
         }
     }
 
     sourceSets {
         commonMain.dependencies {
-            implementation(project(":features:greeting"))
-            
             implementation(project(":shared:core"))
-            implementation(project(":shared:ui"))
             
             implementation(compose.runtime)
             implementation(compose.foundation)
@@ -53,7 +50,7 @@ kotlin {
 }
 
 android {
-    namespace = "com.example.oppty1024.ai_edge_mp.composeApp"
+    namespace = "com.example.oppty1024.ai_edge_mp.shared.ui"
     compileSdk = libs.versions.android.compileSdk.get().toInt()
 
     defaultConfig {
@@ -63,4 +60,5 @@ android {
         sourceCompatibility = JavaVersion.VERSION_11
         targetCompatibility = JavaVersion.VERSION_11
     }
+
 } 
