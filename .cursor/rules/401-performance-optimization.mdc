@@ -1,0 +1,82 @@
+---
+description: 
+globs: 
+alwaysApply: false
+---
+---
+description: Performance optimization guidelines for Compose and KMP applications
+globs: **/*Composable*.kt, **/*ViewModel*.kt, **/ui/**/*.kt, **/*Screen*.kt
+---
+
+# Performance Optimization Guidelines
+
+## Compose Performance Best Practices
+
+### Recomposition Optimization
+- Minimize recomposition scope using proper keys in lists
+- Use `derivedStateOf` for expensive state calculations
+- Implement proper `key` parameter usage in dynamic content
+- Use `@Stable` and `@Immutable` annotations for data classes
+- Avoid creating objects during composition
+
+### List Performance
+- Use `LazyColumn`/`LazyRow` for large scrollable lists instead of `Column`/`Row`
+- Implement proper item keys for list items
+- Use content padding instead of adding items for spacing
+- Implement lazy loading and pagination for large datasets
+
+### State Management Performance
+- Hoist state appropriately to minimize recomposition
+- Use `remember` and `rememberSaveable` correctly
+- Avoid unnecessary state updates and observations
+- Use `StateFlow` instead of `LiveData` in shared code
+
+## Memory Management
+
+### Resource Management
+- Release resources promptly in `DisposableEffect`
+- Use proper lifecycle awareness with coroutines
+- Avoid memory leaks with proper cleanup
+- Use `WeakReference` for circular references when necessary
+
+### Image and Asset Optimization
+- Implement efficient image loading with caching mechanisms
+- Use appropriate image formats and resolutions
+- Implement lazy loading for images in lists
+- Cache and reuse resources when possible
+
+## Background Processing
+
+### Coroutine Best Practices
+- Use proper coroutine scopes and contexts
+- Handle coroutine cancellation properly
+- Use appropriate dispatchers for different operations
+- Avoid blocking operations on main thread
+
+### Network and I/O Operations
+- Implement proper background processing for heavy operations
+- Use coroutines for asynchronous operations
+- Implement proper error handling and retry mechanisms
+- Cache frequently accessed data
+
+## Platform-Specific Optimizations
+
+### Android-Specific Performance
+- Use ProGuard/R8 for code optimization
+- Implement proper build variants for release optimization
+- Use Android-specific performance profiling tools
+- Optimize APK size with resource optimization
+
+### iOS-Specific Performance
+- Follow iOS memory management guidelines
+- Use appropriate iOS-specific optimizations
+- Test memory usage with iOS profiling tools
+- Optimize app launch time and responsiveness
+
+## Monitoring and Profiling
+- Monitor app startup time
+- Track UI render performance
+- Monitor memory usage patterns
+- Measure network request performance
+- Use platform-specific profiling tools
+- Profile memory allocations and garbage collection

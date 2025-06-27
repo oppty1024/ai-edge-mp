@@ -1,0 +1,37 @@
+---
+description: 
+globs: 
+alwaysApply: true
+---
+---
+description: Kotlin Multiplatform foundational standards and cross-platform principles
+globs: **/*.kt, **/*.kts, **/build.gradle.kts, settings.gradle.kts
+alwaysApply: true
+---
+
+# Kotlin Multiplatform Foundation Standards
+
+## Cross-Platform First Principles
+- Maximize code sharing in `commonMain`
+- Use `expect/actual` only when necessary
+- Define contracts in common, implement in platform-specific
+- Prioritize platform-agnostic solutions
+
+## Essential KMP Patterns
+- Use `StateFlow` instead of `LiveData` for shared state
+- Implement repository pattern in shared data layer  
+- Keep business logic platform-independent
+- Use Kotlin Result type for error handling
+
+## Module Structure Foundation
+```
+commonMain/    # Shared business logic (preferred)
+androidMain/   # Android-specific implementations only
+iosMain/       # iOS-specific implementations only
+```
+
+## Key Guidelines
+- Write tests in `commonTest` when possible
+- Use constructor dependency injection
+- Follow unidirectional data flow patterns
+- Implement proper lifecycle management across platforms

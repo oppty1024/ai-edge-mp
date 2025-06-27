@@ -1,0 +1,49 @@
+---
+description: 
+globs: **/*.kt,**/*.kts
+alwaysApply: false
+---
+---
+description: Kotlin language conventions, naming standards, and code quality rules
+globs: **/*.kt, **/*.kts
+---
+
+# Kotlin Language Conventions
+
+## Naming Conventions
+- **Class Names**: PascalCase (e.g., `UserRepository`)
+- **Function Names**: camelCase (e.g., `getUserData`)
+- **Variable Names**: camelCase (e.g., `userName`)
+- **Constants**: UPPER_SNAKE_CASE (e.g., `MAX_RETRY_COUNT`)
+- **Package Names**: lowercase with dots (e.g., `com.example.oppty1024.ai_edge_mp.domain`)
+
+## File Organization
+- One top-level class per file
+- File name should match class name
+- Use meaningful import statements
+- Avoid `import *` statements
+
+## Function and Class Design
+- Keep functions short and focused on single responsibility
+- Use expression body syntax for single-line functions
+- Prefer data classes for data containers
+- Use sealed classes for representing finite state sets
+
+## Error Handling
+- Use `Result` type for operations that can fail
+- Define clear error types
+- Handle exceptions at appropriate layers
+
+## Code Quality Standards
+- Use meaningful variable and function names
+- Add necessary comments for complex logic
+- Maintain consistent code formatting with KtLint
+- Follow SOLID principles
+- Reduce code duplication through proper abstraction
+
+## Cross-Platform Considerations
+- Define `expect` declarations in `commonMain`
+- Provide `actual` implementations in platform-specific source sets
+- Keep interfaces concise and clear
+- Minimize platform-specific code
+- Ensure consistency across platform implementations

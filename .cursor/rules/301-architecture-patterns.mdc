@@ -1,0 +1,73 @@
+---
+description: 
+globs: 
+alwaysApply: false
+---
+---
+description: Clean Architecture implementation and MVVM patterns for KMP projects
+globs: **/domain/**/*.kt, **/data/**/*.kt, **/presentation/**/*.kt, **/*ViewModel*.kt, **/*Repository*.kt, **/*UseCase*.kt
+---
+
+# Architecture Patterns and Project Structure
+
+## Clean Architecture Layers
+
+### Domain Layer (Business Logic)
+- Contains business rules and use cases
+- Independent of external frameworks and UI
+- Defines interfaces for data access
+- Pure Kotlin code without platform dependencies
+
+### Data Layer
+- Implements domain interfaces
+- Handles data sources (network, database, cache)
+- Manages data transformation and mapping
+- Contains repository implementations
+
+### Presentation Layer
+- Contains UI components and state management
+- Implements ViewModels for state handling
+- Follows unidirectional data flow patterns
+- Platform-specific UI implementations
+
+## MVVM Pattern Implementation
+
+### Model
+- Data models representing business entities
+- Business logic and domain rules
+- Data validation and transformation
+
+### View
+- Composable functions and UI components
+- Event handling and user interactions
+- UI state representation
+
+### ViewModel
+- State management and business logic coordination
+- Mediates between View and Model layers
+- Handles UI-related data and state persistence
+- Manages lifecycle-aware operations
+
+## Dependency Injection Principles
+- Use constructor injection for dependencies
+- Separate interfaces from implementations
+- Avoid static dependencies and global state
+- Implement proper dependency scoping
+- Use dependency inversion principle
+
+## Module Organization Strategy
+
+### Dependency Rules
+1. **Layer Dependencies**: presentation → domain → data → core
+2. **Module Dependencies**: features depend on shared modules
+3. **Cross-platform Dependencies**: commonMain defines contracts, platform-specific provides implementations
+
+## Testing Architecture
+- `commonTest/` - Shared business logic tests
+- `androidTest/` - Android-specific tests
+- `iosTest/` - iOS-specific tests
+- Use descriptive test function names
+- Follow AAA pattern (Arrange, Act, Assert)
+- Test edge cases and exception scenarios
+- Maintain test independence and isolation
+- Mock external dependencies properly

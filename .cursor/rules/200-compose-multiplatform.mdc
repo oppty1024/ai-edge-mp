@@ -1,0 +1,41 @@
+---
+description: 
+globs: 
+alwaysApply: true
+---
+---
+description: Compose Multiplatform foundational patterns and cross-platform UI principles
+globs: **/*Composable*.kt, **/ui/**/*.kt, **/*Screen*.kt, **/*Component*.kt, **/composeResources/**/*
+alwaysApply: true
+---
+
+# Compose Multiplatform Foundation
+
+## Cross-Platform UI Principles
+- Prioritize shared UI components in `commonMain`
+- Use platform-specific implementations only when absolutely necessary
+- Share resources via `composeResources/` for cross-platform compatibility
+- Test UI components on both Android and iOS platforms
+
+## Core Composable Standards
+- Use PascalCase for function names (e.g., `GreetingScreen`, `UserProfileCard`)
+- Add `@Composable` annotation to all composable functions
+- Use `Modifier = Modifier` as default parameter for layout customization
+- Follow composable function naming conventions (noun-based names)
+
+## State Management Foundation
+- Apply state hoisting principle - lift state up to appropriate composable level
+- Use `StateFlow` and `StateHolder` pattern in ViewModels for reactive state
+- Implement proper unidirectional data flow (UDF) pattern
+- Separate stateful and stateless composables clearly
+
+## Performance Foundation
+- Use `LazyColumn`/`LazyRow` for large scrollable lists
+- Implement proper `key` parameter usage in composables with dynamic content
+- Minimize recomposition scope using proper keys
+- Apply recomposition optimization techniques with `@Stable` and `@Immutable`
+
+## Resource Management
+- Use `expect/actual` for platform-specific UI behavior when required
+- Organize shared resources in `composeResources/`
+- Follow Material Design 3 principles and theming

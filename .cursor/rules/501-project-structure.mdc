@@ -1,0 +1,105 @@
+---
+description: 
+globs: 
+alwaysApply: false
+---
+---
+description: Project structure and module organization guidelines for KMP projects
+globs: settings.gradle.kts, build.gradle.kts, gradle/libs.versions.toml, **/build.gradle.kts
+---
+
+# Project Structure and Module Organization
+
+## Project Overview
+This Kotlin Multiplatform (KMP) project supports Android and iOS platforms, following Clean Architecture principles with modular design.
+
+## Core Configuration Files
+- Project configuration: @settings.gradle.kts
+- Root build configuration: @build.gradle.kts  
+- Dependency version management: @gradle/libs.versions.toml
+
+## Module Architecture
+
+### Platform Application Modules
+- **Android App**: [androidApp/](mdc:androidApp) - Android-specific application entry point
+- **iOS App**: [iosApp/](mdc:iosApp) - iOS-specific application entry point  
+- **Compose App**: [composeApp/](mdc:composeApp) - Compose Multiplatform main application
+
+### Shared Code Modules Structure
+```
+shared/
+├── core/          # Platform abstraction layer with expect/actual declarations
+├── domain/        # Business logic layer (pure Kotlin)
+├── data/         # Data access layer (repositories, data sources)
+└── ui/           # Shared UI components and themes
+```
+
+### Feature Modules Organization
+```
+features/
+└── [feature-name]/
+    ├── build.gradle.kts
+    └── src/
+        ├── commonMain/kotlin/
+        ├── androidMain/kotlin/
+        ├── iosMain/kotlin/
+        └── commonTest/kotlin/
+```
+
+## Source Set Structure Guidelines
+Each module should contain:
+- `commonMain/kotlin/` - Cross-platform shared code
+- `androidMain/kotlin/` - Android-specific implementations
+- `iosMain/kotlin/` - iOS-specific implementations  
+- `commonTest/kotlin/` - Shared test code
+- `androidTest/kotlin/` - Android-specific tests
+- `iosTest/kotlin/` - iOS-specific tests
+
+## Module Dependency Rules
+
+### Layer Dependencies
+1. **Presentation Layer** → Domain Layer → Data Layer → Core Layer
+2. **Feature Modules** → Shared Modules
+3. **Platform Apps** → Feature Modules + Shared Modules
+
+### Dependency Guidelines
+- No circular dependencies between modules
+- Core module has no dependencies on other project modules
+- Domain layer depends only on core module
+- Data layer can depend on domain and core modules
+- UI layer can depend on domain, data, and core modules
+
+## Package Structure Convention
+```
+com.example.oppty1024.ai_edge_mp
+├── [module-name]/
+│   ├── [layer-name]/
+│   │   ├── model/
+│   │   ├── repository/
+│   │   └── usecase/
+│   └── [feature-name]/
+│       ├── presentation/
+│       ├── domain/
+│       └── data/
+```
+
+## File Organization Standards
+- Use lowercase with underscores for package directories
+- Use descriptive names for feature directories
+- File name should match the primary class name
+- Use descriptive names that indicate file purpose
+
+## Development Environment Setup
+- Use version catalogs for dependency management
+- Implement proper build variants for different environments
+- Configure proper ProGuard/R8 rules for release builds
+- Configure static analysis tools (detekt, ktlint)
+- Set up continuous integration pipelines
+
+## Best Practices for Module Design
+- Maintain single responsibility for each module
+- Avoid circular dependencies between modules
+- Use dependency injection for component management
+- Implement proper abstraction layers
+- Regular refactoring to maintain clean architecture
+- Follow SOLID principles in module design

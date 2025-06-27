@@ -1,0 +1,51 @@
+---
+description: 
+globs: 
+alwaysApply: false
+---
+---
+description: Detailed Compose UI patterns, state management, and component design guidelines
+globs: **/*Composable*.kt, **/*Screen*.kt, **/*Component*.kt, **/presentation/**/*.kt
+---
+
+# Compose UI Development Patterns
+
+## Advanced Composable Guidelines
+
+### Preview and Testing
+- Provide preview data with `@PreviewParameter` for complex components
+- Use `@Preview` annotations for UI validation across platforms
+- Create atomic components for reusability (Button, TextField variants)
+- Use preview functions to validate UI components in isolation
+
+### State Management Patterns
+- Use `remember` for local state that doesn't survive configuration changes
+- Use `rememberSaveable` for state that needs to persist across process death
+- Use `derivedStateOf` for expensive state calculations
+
+### Side Effects Management
+- Avoid side effects in composable functions
+- Use `LaunchedEffect` for one-time effects
+- Use `DisposableEffect` for resource cleanup
+- Use `SideEffect` for non-Compose state synchronization
+
+## Component Design Patterns
+
+### Component Architecture
+- Break complex UI into smaller, reusable Composable functions
+- Implement proper separation between stateful and stateless composables
+- Follow Material Design 3 principles and theming
+- Implement proper error handling and loading states in UI
+
+### Layout and Performance Optimization
+- Use proper Compose modifiers ordering (layout → drawing → input)
+- Use content padding instead of adding items for spacing in lists
+- Implement lazy loading and pagination for large datasets
+- Use stable parameters to reduce unnecessary recomposition
+- Avoid heavy operations (I/O, network calls) directly in Composable functions
+
+## Advanced Patterns
+- Use `CompositionLocalProvider` for theme and dependency injection
+- Implement custom layouts when needed
+- Use `Animatable` and `AnimationSpec` for custom animations
+- Apply proper accessibility semantics for cross-platform support

@@ -1,0 +1,40 @@
+---
+description: 
+globs: 
+alwaysApply: true
+---
+---
+description: Kotlin Multiplatform project overview and development standards index
+globs: .cursor/rules/*.mdc, *.md, README.md
+alwaysApply: true
+---
+
+# Kotlin Multiplatform Development Standards - Project Overview
+
+This Kotlin Multiplatform (KMP) project supports Android and iOS platforms, following Clean Architecture principles with modular design.
+
+## Project Structure
+This project follows a modular architecture with clear separation between platform-specific apps and shared cross-platform code. For detailed module organization, see @501-project-structure.mdc.
+
+## Development Standards Reference
+For specific guidance, reference these specialized rules:
+- @100-kotlin-multiplatform.mdc - KMP foundational standards
+- @110-kotlin-conventions.mdc - Kotlin language standards
+- @200-compose-multiplatform.mdc - Compose foundational patterns
+- @210-compose-patterns.mdc - UI development guidelines  
+- @301-architecture-patterns.mdc - Architecture and testing
+- @401-performance-optimization.mdc - Performance best practices
+- @501-project-structure.mdc - Module organization
+
+## Essential Practices
+- Follow Clean Architecture principles with modular design
+- Maximize code sharing through Kotlin Multiplatform
+- Use Compose Multiplatform for cross-platform UI
+- Maintain consistent code quality and performance standards
+
+## Getting Started Workflow
+For new team members, follow this learning path:
+1. **Foundation**: @501-project-structure.mdc → @100-kotlin-multiplatform.mdc → @110-kotlin-conventions.mdc
+2. **Architecture**: @301-architecture-patterns.mdc 
+3. **UI Development**: @200-compose-multiplatform.mdc → @210-compose-patterns.mdc
+4. **Optimization**: @401-performance-optimization.mdc
