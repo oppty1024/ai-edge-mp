@@ -18,6 +18,7 @@ This project follows a modular architecture with clear separation between platfo
 
 ## Development Standards Reference
 For specific guidance, reference these specialized rules:
+- @002-language-settings.mdc - Language standards for code generation
 - @100-kotlin-multiplatform.mdc - KMP foundational standards
 - @110-kotlin-conventions.mdc - Kotlin language standards
 - @200-compose-multiplatform.mdc - Compose foundational patterns
@@ -34,7 +35,7 @@ For specific guidance, reference these specialized rules:
 
 ## Getting Started Workflow
 For new team members, follow this learning path:
-1. **Foundation**: @501-project-structure.mdc → @100-kotlin-multiplatform.mdc → @110-kotlin-conventions.mdc
+1. **Foundation**: @002-language-settings.mdc → @501-project-structure.mdc → @100-kotlin-multiplatform.mdc → @110-kotlin-conventions.mdc
 2. **Architecture**: @301-architecture-patterns.mdc 
 3. **UI Development**: @200-compose-multiplatform.mdc → @210-compose-patterns.mdc
 4. **Optimization**: @401-performance-optimization.mdc

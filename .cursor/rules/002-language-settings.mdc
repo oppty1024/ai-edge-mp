@@ -1,0 +1,52 @@
+---
+description: 
+globs: 
+alwaysApply: true
+---
+---
+description: Language settings - No Chinese in comments and logs
+globs: **/*.kt, **/*.kts, **/*.java, **/*.swift
+alwaysApply: true
+---
+
+# Code Comments and Logs - English Only
+
+## Simple Rules
+- **Code comments**: Use English only
+- **Log messages**: Use English only
+
+## Examples
+
+### ✅ Correct
+```kotlin
+class UserManager {
+    // Initialize user data on startup
+    fun initUser() {
+        logger.info("User initialization completed")
+        logger.error("Failed to load user preferences")
+    }
+    
+    /**
+     * Updates user profile with new information
+     * @param user Updated user data
+     */
+    fun updateProfile(user: User) { }
+}
+```
+
+### ❌ Avoid
+```kotlin
+class UserManager {
+    // 在启动时初始化用户数据
+    fun initUser() {
+        logger.info("用户初始化完成")
+        logger.error("加载用户偏好失败")
+    }
+    
+    /**
+     * 使用新信息更新用户资料
+     * @param user 更新的用户数据
+     */
+    fun updateProfile(user: User) { }
+}
+```
