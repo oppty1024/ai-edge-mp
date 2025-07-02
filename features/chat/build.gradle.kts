@@ -22,18 +22,14 @@ kotlin {
         iosSimulatorArm64()
     ).forEach { iosTarget ->
         iosTarget.binaries.framework {
-            baseName = "ComposeApp"
+            baseName = "FeatureChat"
             isStatic = true
         }
     }
 
     sourceSets {
         commonMain.dependencies {
-            implementation(project(":features:greeting"))
-            implementation(project(":features:chat"))
-            
             implementation(project(":shared:core"))
-            implementation(project(":shared:ui"))
             
             implementation(compose.runtime)
             implementation(compose.foundation)
@@ -43,18 +39,23 @@ kotlin {
             implementation(compose.components.uiToolingPreview)
             implementation(libs.androidx.lifecycle.viewmodel)
             implementation(libs.androidx.lifecycle.runtimeCompose)
+            
+            implementation(libs.kotlinx.coroutines.core)
         }
         commonTest.dependencies {
             implementation(libs.kotlin.test)
         }
         androidMain.dependencies {
             implementation(compose.preview)
+            implementation("com.google.mediapipe:tasks-genai:0.10.24")
+        }
+        iosMain.dependencies {
         }
     }
 }
 
 android {
-    namespace = "com.example.oppty1024.ai_edge_mp.composeApp"
+    namespace = "com.example.oppty1024.ai_edge_mp.features.chat"
     compileSdk = libs.versions.android.compileSdk.get().toInt()
 
     defaultConfig {

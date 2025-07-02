@@ -33,6 +33,7 @@ include(":iosApp")
 include(":composeApp")
 
 include(":features:greeting")
+include(":features:chat")
 
 include(":shared:core")
 include(":shared:data")
